@@ -1,2 +1,2 @@
-# fun-scripts
-Fun scripts, try-outs and the like
+# Welcome to fun-scripts
+Celebrating open source and the art of coding.

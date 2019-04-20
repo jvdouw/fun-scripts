@@ -5,45 +5,52 @@ function printUsage(){
   # Prevent usage from being printed twice
   if [[ -z $usagePrinted ]]; then
     echo "Usage: color.sh [options] [TEXT]"
-    echo "TEXT is displayed in a color derived from the current second."
+    echo "TEXT is displayed in a color derived from the current second, i.e. it is
+different every second."
     echo "Flags are:"
-    echo "  -h  Display this help on usage (ignore TEXT)"
+    echo "  -h  Display this help on usage, plus extra suggestions, and quit without
+      processing any further arguments."
     echo "  -d  Debug mode: display 'raw' string as well"
     echo "  -n  Output no newline after string"
-    echo "---------"
-    echo "Suggested (fun) ways of using this script:"
-    echo "---------"
-    echo "# See the colour change in 'watch' every second"
-    echo "watch -cn 1 ./colour-change.sh"
-    echo "---------"
-    echo "# See the colour change in your terminal every second"
-    echo "while [[ 1 ]]; do"
-    echo "  echo -ne '\b\b\b\b\b\b\b\b\b'";
-    echo "  ./colour-change.sh -n"
-    echo "  sleep 1"
-    echo "done"
-    echo "---------"
-    echo "Nice, isn't it, a script outputting another script to the terminal?!"
-    echo
     usagePrinted=1
   fi
 }
 
+function printSuggestions(){
+  echo "---------"
+  echo "Suggested (fun) ways of using this script:"
+  echo "---------"
+  echo "# See the colour change in 'watch' every second"
+  echo "watch -cn 1 ./colour-change.sh"
+  echo "---------"
+  echo "# See the colour change in your terminal every second"
+  echo "while [[ 1 ]]; do"
+  echo "  echo -ne '\b\b\b\b\b\b\b\b\b'";
+  echo "  ./colour-change.sh -n"
+  echo "  sleep 1"
+  echo "done"
+  echo "---------"
+  echo "Nice, isn't it, a script outputting another script to the terminal?!"
+  echo
+}
+
 # Get the flags (First colon sets getopts to silent mode so I can handle errors
-# myself
+# myself)
 while getopts ':dhn' flag; do
-  case "${flag}" in
+  case "$flag" in
     h) printUsage
+       printSuggestions
        exit 0 ;;
     d) debugMode=1 ;;
     n) noNewline=1 ;;
-    *) echo "ERROR: flag "$OPTARG" unknown." >&2
-       printUsage ;;
+    *) echo "ERROR: flag -"$OPTARG" is invalid." >&2
+       printUsage
+       exit 1 ;;
   esac
 done
 
 # Don't display flags as coloured text
-shift
+shift $((OPTIND-1))
 
 # Get the parameter, make sure it's just one
 if [[ $# -le 1 ]]; then
@@ -54,7 +61,7 @@ if [[ $# -le 1 ]]; then
     arg="KLEURTJES"
   fi
 else
-  echo "Error: too many arguments passed" >&2
+  echo "ERROR: too many arguments passed" >&2
   printUsage
   exit 1
 fi

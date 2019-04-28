@@ -4,10 +4,10 @@
 function printUsage(){
   # Prevent usage from being printed twice
   if [[ -z $usagePrinted ]]; then
-    echo "Usage: color.sh [options] [TEXT]"
+    echo "Usage: colour-change.sh [FLAGS] [TEXT]"
     echo "TEXT is displayed in a color derived from the current second, i.e. it is
 different every second."
-    echo "Flags are:"
+    echo "FLAGS are one or more of:"
     echo "  -h  Display this help on usage, plus extra suggestions, and quit without
       processing any further arguments."
     echo "  -d  Debug mode: display 'raw' string as well"

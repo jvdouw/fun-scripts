@@ -11,4 +11,4 @@ This script revolutionises the way we edit text. It dramatically reduces the amo
 
 For real: imagine the switch from a massive keyboard that contains all Chinese characters, reduced to a keyboard with only the Latin alphabet. Then imagine making that leap once again, and you'll have the 2- to 3-key\* keyboard necessary for this program.
 
-\*: 3rd key required to ever be able to exit the program ever again once started.
+\*: 3rd key required to ever be able to exit the program again once started.

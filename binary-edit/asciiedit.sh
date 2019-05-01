@@ -9,10 +9,14 @@ echo >&2
 echo "Type ones and zeroes as long as you want; cancel with any other character or
 key. This script interprets 7-bit ASCII characters, and only 7-bit ASCII
 characters." >&2
+echo >&2
 echo "Tip: typed in a wrong character? No worries whatsoever! Simply use the
 backspace ASCII character! Made a mistake in typing the backspace? Just use two
 backspaces characters!" >&2
-echo "This intro is written to stderr, so you can suppress it" >&2
+echo >&2
+echo "This intro is written to stderr, so you can suppress it." >&2
+echo >&2
+echo "=============================================================================" >&2
 
 # Exiting happens within the loop
 while [[ 1 ]]; do

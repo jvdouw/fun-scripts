@@ -6,6 +6,8 @@
 <?php
 // Retrieve text
 $tekst = isset($_POST['tekst']) ? $_POST['tekst'] : "";
+// Remove HTML stuff, this script only supports plain text.
+$tekst = strip_tags($tekst);
 if($tekst == ""){
 	?>
 Vaak zijn zinnen nog goed leesbaar als van alle woorden alleen de eerste en laatste letter blijven staan en de rest van de letters door elkaar gehusseld wordt. Probeer hieronder!

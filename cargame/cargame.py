@@ -137,9 +137,9 @@ def main(stdscr):
 
         # Make a hard pause to 'sit out' the rest of the 10th of a second
         curses.nocbreak()
-        stdscr.addstr(GAME_HEIGHT-2, GAME_WIDTH+3, "BR")
+        # stdscr.addstr(GAME_HEIGHT-2, GAME_WIDTH+3, "BR") #debug
         time.sleep(resttijd)
-        stdscr.addstr(GAME_HEIGHT-2, GAME_WIDTH+3, str(resttijd))
+        # stdscr.addstr(GAME_HEIGHT-2, GAME_WIDTH+3, str(resttijd)) #debug
 
         # Make sure the cursor is not displayed in a weird place
         stdscr.addstr(GAME_HEIGHT,GAME_WIDTH+2,"")

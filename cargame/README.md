@@ -7,3 +7,5 @@ Made with the goal to experiment with making games in Python, while not yet both
 Here an impression of the game: do note the extraordinarily modern look and feel.
 
 ![Screenshot Cargame](https://raw.githubusercontent.com/jvdouw/fun-scripts/master/cargame/cargame.png)
+
+Your car is the 'A' at the bottom: use arrows left and right to steer. Your enemies are the 'V's that come driving right toward you. Collect the 'O's for points!
